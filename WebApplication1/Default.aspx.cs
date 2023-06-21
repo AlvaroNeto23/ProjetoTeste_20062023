@@ -1,7 +1,9 @@
-﻿using System;
+﻿using NCalc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -181,17 +183,23 @@ namespace WebApplication1
             try
             {
                 strExpressao = strExpressao.Replace(" ", "");
-                
 
-                string numeros = String.Join("", System.Text.RegularExpressions.Regex.Split(strExpressao, @"[^\d]"));
-                string sinais = String.Join("", System.Text.RegularExpressions.Regex.Split(strExpressao, @"[\d]"));
+                string apenasNumeros = String.Join("", System.Text.RegularExpressions.Regex.Split(strExpressao, @"[^\d]"));
+                string apenasSinais = String.Join("", System.Text.RegularExpressions.Regex.Split(strExpressao, @"[\d]"));
 
-                for (int i=0; i<numeros.Length; i++)
+                double _montagem = 0;
+
+                for (int i = 0; i < apenasNumeros.Length; i++)
                 {
+                    int num = Convert.ToInt32(apenasNumeros.Substring(i, 1));
 
+                    _montagem = Math.Pow(num, 1);
                 }
 
-                return "";
+                var calc = new Expression(strExpressao);
+                var result = calc.Evaluate();
+
+                return result.ToString();
             }
             catch (Exception ex)
             {
@@ -201,5 +209,53 @@ namespace WebApplication1
         }
 
         #endregion
+
+        #region Array Somar Números Inteiros
+
+        protected void btnSomarNumeros_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtNumerosInteiros.Value))
+                {
+                    ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "Alert", "<script language='javascript'> { window.alert(\" Preencha o campo com 'Números Inteiros separados por '+'. \") }</script>");
+                    return;
+                }
+
+                string[] splitNum = txtNumerosInteiros.Value.ToString().Split('+');
+                int resultado = 0;
+
+                for (int i = 0; i < splitNum.Length; i++)
+                {
+                    splitNum[i] = splitNum[i].Replace(" ", "");
+
+                    if (!string.IsNullOrEmpty(splitNum[i]))
+                    {
+                        resultado += Convert.ToInt32(splitNum[i]);
+                    }
+                }
+
+
+                txtResultadoSomarNumeros.Value = resultado.ToString();
+            }
+            catch (Exception ex)
+            {
+                txtResultado.Value = "Gerou uma exceção. Erro: " + ex.Message;
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Lista De Objetos Sem Repetição
+
+        [WebMethod]
+        public static string FuncaoSemRepeticao(string objeto)
+        {
+            return "Resultado " + objeto.ToString();
+        }
+
+        #endregion
+
     }
 }

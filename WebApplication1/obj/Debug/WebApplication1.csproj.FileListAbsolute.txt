@@ -59,6 +59,7 @@ C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Microsoft.CodeDo
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Microsoft.ScriptManager.MSAjax.dll
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Microsoft.ScriptManager.WebForms.dll
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\NCalc.dll
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Newtonsoft.Json.dll
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\System.Web.Optimization.dll
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\WebGrease.dll
@@ -67,7 +68,6 @@ C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Newtonsoft.Json.
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Antlr3.Runtime.pdb
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\alvar\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.AssemblyReference.cache
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 C:\Users\alvar\source\repos\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll

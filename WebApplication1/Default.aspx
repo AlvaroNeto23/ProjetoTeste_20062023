@@ -3,54 +3,66 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 
-        <input type="text" id="txtNumInteiro" runat="server" placeholder="Número Inteiro até 4 caracteres" />
-        <asp:Button ID="btnNumExtenso" runat="server" Text="Número em extenso" OnClick="btnNumExtenso_Click" />
-        <input type="text" id="txtResultado" runat="server" />
-
-
-
-
-
-
-
-        <input type="text" id="txtExprMatem" runat="server" placeholder="Expressão Matemática" />
-        <asp:Button ID="btnExprMatem" runat="server" Text="Calcular" OnClick="btnExprMatem_Click" />
-        <input type="text" id="txtResultadoExprMatem" runat="server" />
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+        <div class="row">
+            <div class="col-md-12">
+                <label>Número Por Extenso</label>
+                <input type="text" id="txtNumInteiro" runat="server" placeholder="Número Inteiro até 4 caracteres" />
+                <asp:Button ID="btnNumExtenso" runat="server" Text="Número por extenso" OnClick="btnNumExtenso_Click" />
+                <input type="text" id="txtResultado" runat="server" />
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label>Expressão Matemática</label>
+                <input type="text" id="txtExprMatem" runat="server" placeholder="Expressão Matemática" />
+                <asp:Button ID="btnExprMatem" runat="server" Text="Calcular" OnClick="btnExprMatem_Click" />
+                <input type="text" id="txtResultadoExprMatem" runat="server" />
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label>Array Somar Números Inteiros</label>
+                <input type="text" id="txtNumerosInteiros" runat="server" placeholder="Números Inteiros separados por '+'" />
+                <asp:Button ID="btnSomarNumeros" runat="server" Text="Somar Números" OnClick="btnSomarNumeros_Click" />
+                <input type="text" id="txtResultadoSomarNumeros" runat="server" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label>Lista De Objetos Sem Repetição</label>
+                <input id="txtObjeto" />
+                <input type="button" id="btnSemRepeticao" value="Sem Repetição" onclick="btnSemRepeticao()" />
+                <input id="txtResultadoSemRepeticao" />
+            </div>
         </div>
     </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        
+        function btnSemRepeticao() {
+
+            //.DISTINCT().ToArray();
+            debugger;
+
+            $.ajax({
+                type: "POST",
+                url: "Default.aspx/FuncaoSemRepeticao",
+                data: "{objeto: '" + $("#txtObjeto").val() + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (resposta) {
+                    debugger;
+
+                    $("#txtResultadoSemRepeticao").val(resposta.d);
+                }
+            });
+        }
+    </script>
 
 </asp:Content>
